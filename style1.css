@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+
+    font-family: 'Poppins', sans-serif;
+    background: #111;
+    color: #eee;
+}
+.hero{
+height: 1000px;
+    background:url(buffalo.jpg.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    background-position: 60% 25%;
+    width: 100%;
+    display: block;
+    
+
+    
+}
+.hero p{
+    font-size: 20 px;
+    margin-bottom: 30px;
+    color:rgb(200, 185, 185)
+ 
+}
+
+.hero h2{
+     font-family: 'Playfair Display', serif;
+font-size: 50px;
+    margin-bottom: 20px;
+    color:white
+}
+.btn{
+    display:inline-block;
+    background: yellow;
+    padding:  12px 30px;
+    text-decoration: none;
+  
+}
+.navbar{
+    display:flex;
+    padding: 20px 100px;
+    justify-content: space-between;
+    height: 9vh;
+    list-style: none;
+}
+.logo{
+
+  font-family: 'Playfair Display', serif;
+    font-size: 30px;
+}
+.navbar  a{
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 18px
+}
+.collection {
+    padding: 100px 80px;
+    text-align: center;
+}
+
+.collection h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+.products{
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+    gap: 40px;
+}
+
+.card {
+    background: #1b1b1b;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    color: #c9a24d;
+}
