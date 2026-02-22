@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            background: url(buffalo.jpg.jpeg);
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: brown;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background: #00c6ff;
+        }
+
+        .login-container p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .login-container a {
+            color:brown;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+            <form onsubmit="return login()">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit"><b>Login<b></button>
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </form>
+
+    </div>
+
+    <script>
+    function login() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (username === "" || password === "") {
+            alert("Please fill in all fields");
+            return false;
+        }
+
+        if (password.length < 10) {
+            alert("Password must be at least 10 characters");
+            return false;
+        }
+
+        const savedUsername = localStorage.getItem("username");
+        const savedPassword = localStorage.getItem("password");
+
+        if (username === savedUsername && password === savedPassword) {
+            localStorage.setItem("loggedIn", "true");
+            localStorage.setItem("user", username);
+            window.location.href = "Dashboard.html";
+        } else {
+            alert("Invalid username or password");
+        }
+
+        return false;
+    }
+
+    function checkAuth() {
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    }
+
+    function logout() {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+</html>
