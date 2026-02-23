@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<script src="js/auth.js"></script>
+
+<div class="navbar">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="reports.html">Reports</a>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<div class="content">
+    <h2>Reports</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Monthly Sales</td>
+            <td>Completed</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>User Activity</td>
+            <td>Pending</td>
+        </tr>
+    </table>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const theme = localStorage.getItem("theme") || "Light";
+    document.body.classList.add(theme.toLowerCase());
+});
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+}
+
+function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

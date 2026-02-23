@@ -171,3 +171,28 @@ footer {
         display: flex;
     }
 }
+.search-bar {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 180px;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 140px;
+  }
+}
+.card button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+.hidden {
+    display: none;
+}

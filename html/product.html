@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+        }
+
+        .product-box {
+            max-width: 700px;
+            background: white;
+            margin: auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin: 20px 0 10px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        button {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="product-box">
+    <img id="productImg">
+    <h2 id="productName"></h2>
+    <p>$<span id="productPrice"></span></p>
+
+    <h3>Order Now</h3>
+    <input type="text" placeholder="Your Name">
+    <input type="text" placeholder="Phone Number">
+    <input type="text" placeholder="Delivery Address">
+    <button>Place Order</button>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("productName").innerText = params.get("name");
+    document.getElementById("productPrice").innerText = params.get("price");
+    document.getElementById("productImg").src = params.get("img");
+</script>
+
+</body>
+</html>

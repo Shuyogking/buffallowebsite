@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+<script src="js/auth.js"></script>
+
+<div class="navbar">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="reports.html">Reports</a>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<div class="content">
+    <h2>Profile</h2>
+    <p><strong>Username:</strong> <span id="user"></span></p>
+    <hr><br>
+    <label>Username</label>
+    <input type="text" id="editUsername">
+    <label>Email</label>
+    <input type="email" id="editEmail">
+    <br><br>
+    <button onclick="saveProfile()">Save Profile</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const username = localStorage.getItem("username") || "Guest";
+    const email = localStorage.getItem("email") || "admin@example.com";
+
+    document.getElementById("user").innerText = username;
+
+    if (document.getElementById("editUsername")) {
+        document.getElementById("editUsername").value = username;
+    }
+
+    if (document.getElementById("editEmail")) {
+        document.getElementById("editEmail").value = email;
+    }
+});
+
+function saveProfile() {
+    const newUsername = document.getElementById("editUsername").value;
+    const newEmail = document.getElementById("editEmail").value;
+
+    if (newUsername.trim() === "" || newEmail.trim() === "") {
+        alert("Fields cannot be empty");
+        return;
+    }
+
+    localStorage.setItem("username", newUsername);
+    localStorage.setItem("email", newEmail);
+
+    alert("Profile updated successfully");
+    location.reload();
+}
+</script>
+
+</body>
+</html>

@@ -10,11 +10,15 @@
   <nav class="navbar">
     <div class="logo">BUFFALO fit</div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="buffalofit.html" target="_blank">Home</a></li>
-      <li><a href="#" target="_blank">About</a></li>
-      <li><a href="#" target="_blank">Collection</a></li>
-      <li><a href="#contact" target="_blank">Contact</a></li>
-      <li><a href="login.html" target="_blank">Login</a> </li>
+      <li><a href="buffalofit.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="Collection.html">Collection</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li id="loginLink"><a href="login.html">Login</a></li>
+      <li id="profileLink" class="hidden"><a href="profile.html">Profile</a></li>
+      <li id="settingsLink" class="hidden"><a href="settings.html">Settings</a></li>
+      <li id="reportsLink" class="hidden"><a href="reports.html">Reports</a></li>
+      <li id="logoutLink" class="hidden"><a href="#" onclick="logout()">Logout</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()">
         <span></span>
@@ -32,22 +36,32 @@
 <section class="collection" id="collection">
     <h2>Our Collection</h2>
     <div class="products">
-        <div class="card">
-            <img src="girl.jpg" alt="">
-            <h3>Classic Biker</h3>
-            <p>$70</p>
-        </div>
-        <div class="card">
-            <img src="download.jpg" alt="">
-            <h3>Urban Rider</h3>
-            <p>$119</p>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="">
-            <h3>Vintage Rebel</h3>
-            <p>$150</p>
-            
-        </div>
+        <div class="card" data-name="classic black jacket">
+        <img src="leather.jpg" alt="Black Leather Jacket">
+        <h3>Classic Black Jacket</h3>
+        <p>$120</p>
+        <a href="product.html?name=Classic Black Jacket&price=120&img=collection1.jpg">
+            <button>View Details</button>
+        </a>
+    </div>
+
+    <div class="card" data-name="brown rider jacket">
+        <img src="men.jpg" alt="Brown Leather Jacket">
+        <h3>Brown Rider Jacket</h3>
+        <p>$140</p>
+        <a href="product.html?name=Brown Rider Jacket&price=140&img=collection2.jpg">
+            <button>View Details</button>
+        </a>
+    </div>
+
+    <div class="card" data-name="vintage leather jacket">
+        <img src="download.jpg" alt="Vintage Jacket">
+        <h3>Vintage Leather Jacket</h3>
+        <p>$160</p>
+        <a href="product.html?name=Vintage Leather Jacket&price=160&img=download.jpg">
+            <button>View Details</button>
+        </a>
+    </div>
     </div>
 </section>
   <section id="contact" class="contact">
@@ -60,13 +74,28 @@
     <p>&copy; 2026 BUFFALO fit. All rights reserved.</p>
   </footer>
   <script>
-    <script>
-function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
-}
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+    }
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+    document.getElementById("loginLink").style.display = isLoggedIn ? "none" : "block";
+    document.getElementById("profileLink").style.display = isLoggedIn ? "block" : "none";
+    document.getElementById("settingsLink").style.display = isLoggedIn ? "block" : "none";
+    document.getElementById("reportsLink").style.display = isLoggedIn ? "block" : "none";
+    document.getElementById("logoutLink").style.display = isLoggedIn ? "block" : "none";
+
+    function logout() {
+        localStorage.clear();
+        window.location.href = "login.html";
+        document.addEventListener("DOMContentLoaded", () => {
+    const theme = localStorage.getItem("theme") || "Light";
+    document.body.classList.add(theme.toLowerCase());
+});
+    }
 </script>
 
-  </script>
+
 
 
 
