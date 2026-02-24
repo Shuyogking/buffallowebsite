@@ -11,9 +11,9 @@
     <div class="logo">BUFFALO fit</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="buffalofit.html">Home</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="aboout.html">About</a></li>
       <li><a href="Collection.html">Collection</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li id="loginLink"><a href="login.html">Login</a></li>
       <li id="profileLink" class="hidden"><a href="profile.html">Profile</a></li>
       <li id="settingsLink" class="hidden"><a href="settings.html">Settings</a></li>
@@ -89,11 +89,11 @@
         localStorage.clear();
         window.location.href = "login.html";
         document.addEventListener("DOMContentLoaded", () => {
-    const theme = localStorage.getItem("theme") || "Light";
-    document.body.classList.add(theme.toLowerCase());
-});
+        const theme = localStorage.getItem("theme") || "Light";
+        document.body.classList.add(theme.toLowerCase());
+        });
     }
-</script>
+    </script>
 
 
 
